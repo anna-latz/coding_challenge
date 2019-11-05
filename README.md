@@ -5,8 +5,8 @@
 After reading through the requirements, I made a list of high level problems that needed solving in order to build a &#39;Localz Driver Tracker&#39;:
 
 1. **DB** : Storage of driver, location and session data
-2. **REST API** : Communication of information via
-3. **LOGIC** : Processing of requests, responses, data
+2. **REST API** : Communication of information
+3. **LOGIC** : Processing of requests, responses and data
 
 Then I thought about what architecture would be best suited to solve the above mentioned problems and decided on the following tech stack:
 
@@ -38,7 +38,7 @@ I decided to use **joi** as a validation library as it provides a powerful schem
 
 **Sessions**
 
-To store session data between HTTP requests I decided to use express-sessions. This way, location and driver  data can be associated during active sessions, but it also acts as a useful tool when managing login and logout actions.
+To store session data between HTTP requests I decided to use express-sessions. This way, location and driver data can be associated during active sessions, but it also acts as a useful tool when managing login and logout actions.
 
 After choosing tools, frameworks, libraries, etc., I came up with a high level structure for my project:
 
@@ -56,7 +56,7 @@ After choosing tools, frameworks, libraries, etc., I came up with a high level s
 
 —- utils                        (contains helpers for validation)
 
-—- serve_r.js_                (contains application setup)
+—- server.js                (contains application setup)
 
 Then I decided on what the data models, controllers and endpoints should look like more specifically:
 
@@ -80,7 +80,7 @@ Then I decided on what the data models, controllers and endpoints should look li
 
 - auth-controller: handles registration, login and logout
 - driver-controller: handles driver information retrieval
-- location-controller: handles submission and retrieval for active sessions
+- location-controller: handles submission and retrieval of locations for active sessions
 
 **Routes/Endpoints**
 
@@ -102,18 +102,18 @@ In order to test my application I used mocha, chai (chaiHttp), because I have us
 
 After making some high level decisions I started coding. Of course I encountered problems from time to time which is why I made some small changes here and there. For instance:
 
-- At first I started implementing authentication using emails and hashed passwords, but I decided it was out of scope, so I simplified the login/logout system to simply use the driverId
-- I tried out a few different test frameworks and played around with seeding mongo dbs, but the implementation was taking too long, so I decided to go with mocha and chai.
+- At first I started implementing authentication using emails and hashed passwords, but I decided it was out of scope for this challenge, so I simplified the login/logout system to simply use the driverId.
+- I tried out a few different test frameworks and played around with seeding mongo dbs, but the implementation was taking too long, so I decided to go with mocha and chai for now.
 
 **Thoughts**
 
-I am still unsure whether the use of an express session is needed in this use case. I implemented it because I thought it was necessary when querying and submitting locations for active sessions. The way I understood the requirements was that locations can only be queried and submitted if a driver is logged in/ has an active session. Plus, using sessions seems to be the norm when handling logins/logouts. However, it could also be possible to pass the driverId as a parameter instead, which would make the use of an express session redundant. This is definitely something I would like to get an opinion on.
+I am still unsure whether the use of an express session is needed in this use case. I implemented it because I thought it was necessary when querying and submitting locations for active sessions. The way I understood the requirements was that locations can only be queried and submitted if a driver is logged in/ has an active session. Plus, using sessions seems to be the norm when handling logins/logouts. However, it could also be possible to pass the driverId as a parameter instead, which would make the use of an express session redundant. I would definitely like to get your opinion on this matter.
 
-Further to this, sessions seem to be persistent in this use case as they are simply go &#39;inactive&#39;. In a real life scenario, I would expect there to be A LOT of inactive sessions and storing them might become a problem. This is definitely something I was thinking about when working on this challenge.
+Further to this, sessions seem to be persistent in this use case as they simply change to &#39;inactive&#39; after logout. In a real life scenario, I would expect there to be A LOT of inactive sessions and storing them might become a problem. This is definitely something I was thinking about when working on this challenge.
 
 If only I had more time …
 
-If I had more time, I would love to learn more about seeding mongo dbs and how to properly set up tests. I definitely need to improve my testing skills and would love to find out what your ideas are around testing APIs. My current team seems to constantly battle with writing unit tests for APIs and trying to figure out how much time/effort should be spend setting up test environments, so please let me know what you think!
+If I had more time, I would love to learn more about seeding mongo dbs and how to properly set up tests. I definitely need to improve my testing skills and would love to find out what your ideas are around testing APIs. My current team constantly seems to battle with writing unit tests for APIs and trying to figure out how much time/effort should be spend setting up test environments, so please let me know what you think!
 
 ## How To Run
 
