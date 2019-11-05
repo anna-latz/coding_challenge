@@ -102,8 +102,8 @@ In order to test my application I used mocha, chai (chaiHttp), because I have us
 
 After making some high level decisions I started coding. Of course I encountered problems from time to time which is why I made some small changes here and there. For instance:
 
-- At first I started implementing authentication using emails and hashed passwords, but I decided it was out of scope for this challenge, so I simplified the login/logout system to simply use the driverId.
-- I tried out a few different test frameworks and played around with seeding mongo dbs, but the implementation was taking too long, so I decided to go with mocha and chai for now.
+- At first I started implementing authentication using emails and hashed passwords, but I decided it was out of scope for this challenge, so I simplified the login/logout system to simply use the driverId
+- I tried out a few different test frameworks and played around with seeding mongo dbs, but the implementation was taking too long, so I decided to go with mocha and chai for now
 
 **Thoughts**
 
