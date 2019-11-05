@@ -140,7 +140,7 @@ cd coding_challenge
 npm install
 ```
 
-Start dev server
+Start dev server (make sure you have populated the .env file)
 ``` bash
 npm run server
 ```
@@ -161,7 +161,7 @@ npm run server
 
 Make sure you changed the **NODE_ENV** to **test** as stated in the prerequisites. I also recommend changing the **DB_CLUSTER** in the .env file to **test**.
 
-Run the tests
+Run the tests (make sure you have populated the .env file)
 ``` bash
 npm run test
 ```
