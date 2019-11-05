@@ -1,0 +1,7 @@
+HOST=localhost
+PORT=5000
+DB_USERNAME=DBusername
+DB_PASSWORD=DBpassword
+DB_CLUSTER=DBcluster
+SESS_SECRET=yourSessionSecret
+NODE_ENV='dev'
